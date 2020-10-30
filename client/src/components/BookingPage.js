@@ -14,7 +14,7 @@ export default function BookingPage() {
 
   function getMovieDetail() {
     setLoading(true);
-    fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=33c89a65`)
+    fetch(`http://localhost:5000/getMovies/${movieId}`)
       .then((response) => response.json())
       .then((result) => {
         setLoading(false);
@@ -36,16 +36,16 @@ export default function BookingPage() {
         <h3>Loading...</h3>
       ) : (
         <>
-          <h2>{data.Title}</h2>
-          <h4>Year: {data.Year}</h4>
+          <h2>{data.title}</h2>
+          <h4>Year: {data.year}</h4>
           <p>
-            <img src={data.Poster} alt="img" className="img-thumbnail" />
+            <img src={data.poster} alt="img" className="img-thumbnail" />
           </p>
           <p>PLOT</p>
-          <p>{data.Plot}</p>
+          <p>{data.plot}</p>
           <h5>Rating: {data.imdbRating}</h5>
-          <h6>Language: {data.Language}</h6>
-          <h6>Country: {data.Country}</h6>
+          <h6>Language: {data.language}</h6>
+          <h6>Country: {data.country}</h6>
           <br />
           <button
             type="button"

@@ -34,7 +34,7 @@ export default function App() {
   }
 
   function fetchMovies() {
-    fetch(`http://localhost:5000/${searchValue}`)
+    fetch(`http://localhost:5000/getMovies/${searchValue}`)
       .then((response) => response.json())
       .then((result) => setData(result))
       .catch((error) => console.log("error", error));
@@ -60,16 +60,16 @@ export default function App() {
                     <CardImg
                       top
                       width="100%"
-                      src={movie.Poster}
+                      src={movie.poster}
                       alt="Card image cap"
                     />
                     <CardBody className="bg-secondary">
-                      <CardTitle>{movie.Title}</CardTitle>
+                      <CardTitle>{movie.title}</CardTitle>
                       <CardText>
-                        {movie.Year}-{movie.Type}
+                        {movie.year}-{movie.type}
                       </CardText>
                       <Link
-                        to={`/booking-page/${movie.imdbID}`}
+                        to={`/booking-page/${movie.imdbId}`}
                         className="btn btn-primary"
                       >
                         Book Now
